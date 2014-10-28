@@ -1,18 +1,24 @@
 package models;
 
-abstract public class AnimalModel {
+abstract public class AnimalModel implements Runnable {
 
 	public enum Sex{m,f};
 
+	// Glob
+	public static final int MAX_HEIGHT 	= 6;
+	public static final int MAX_WEIGHT 	= 9;
+	public static final int MAX_AGE 	= 5;
+	public static final int MAX_HUNGER 	= 4;
+	
 	// Vars
 	private String name; 
-	private int weight; // 0-9
-	private int height; // 0-6
-	private Sex sex;
-	private int age;	// 0-5
-	private int hunger;
-	private boolean isAsleep;
-	private int health;
+	private int weight; 	  // 0-9 > obèse
+	private int height; 	  // 0-6 > géant
+	private Sex sex;		  // m/f
+	private int age;		  // 0-5 > mort par vieillesse
+	private int hunger; 	  // 0-4 > affamé
+	private boolean isAsleep; // false-true > endormi
+	private int health;       // 0-100 / 0 = mort non-naturelle
 	
 	//getters
 	public String 	getName() 	{return name;}
