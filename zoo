@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author loubna EL MARNAOUI
+ */
+public class zoo {
+    public class GestionZoo {
+ //attribut
+ private Zoo zoo;
+
+ //constructeur
+ public GestionZoo() {
+   this.zoo = new Zoo();
+ }
+
+ //mÃ©thode
+ public void run() {
+    zoo.ajouteAnimal(new tigre("seigneur"));
+    zoo.ajouteAnimal(new loup("gros chat"));
+    zoo.ajouteAnimal(new Ours("balou"));
+    zoo.ajouteAnimal(new baleine("sherkan"));
+    zoo.AjouteAnimal (new poissonsrouges("nemo"));
+    zoo.AjouteAnimal (new pinguoin ("empreur"));
+    
+    String choix = Console.lireClavier("0=Quitter, 1=Endormir, 2=rendremalade : ");
+
+    while (!choix.equals("0")) {
+      if (choix.equals("1")) {
+        zoo.endormirLesAnimaux();
+      } else (choix.equals ('2')){
+        zoo.rendremaladeLesAnimaux();
+    }
+          
+      }
+      choix = Console.lireClavier("0=Quitter, 1=Endormir, 2=rendremalade : ");
+    }//while
+  }//run
+
+  public static void main(String[] args) {
+    GestionZoo app = new GestionZoo();
+    app.run();
+ }
+}
