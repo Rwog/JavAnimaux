@@ -1,6 +1,6 @@
 package models;
 
-abstract public class AnimalModel implements Runnable {
+public abstract class AnimalModel implements Runnable {
 
 	public enum Sex{m,f};
 
@@ -40,19 +40,14 @@ abstract public class AnimalModel implements Runnable {
 	public void 	setAsleep(boolean isAsleep) {this.isAsleep = isAsleep;}
 	public void 	setHealth(int health) 		{this.health = health;}
 	
-	//Functs
-	public abstract void eat();
-	public abstract void cry();
-	public abstract void heal();
-	public abstract void toggleSleepMode();
 	
 	// Const
-	public AnimalModel(String newName, Sex newSex, int newWeight, int newHeight) {
+	public AnimalModel(String newName, Sex newSex) {
 		super();
 		this.name = newName;
 		this.sex = newSex;
-		this.weight = newWeight;
-		this.height = newHeight;
+		this.weight = 0;
+		this.height = 0;
 		this.age = 0;
 		this.hunger = 0;
 		this.health = 100;

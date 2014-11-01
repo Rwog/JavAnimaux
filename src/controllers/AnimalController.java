@@ -4,7 +4,7 @@ import models.AnimalModel;
 import models.AnimalModel.Sex;
 import views.AnimalView;
 
-public class AnimalController {
+public abstract class AnimalController {
 
 	// Modèle et vue associée à ce contrôlleur
 	private AnimalModel model;
