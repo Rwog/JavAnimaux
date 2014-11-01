@@ -1,11 +1,11 @@
 package controllers;
 
-import models.AnimalModel;
-import views.AnimalView;
+import models.EagleModel;
+import views.OtherView;
 
 public class EagleController extends OtherController {
 
-	public EagleController(AnimalModel modele, AnimalView vue) {
+	public EagleController(EagleModel modele, OtherView vue) {
 		super(modele, vue);
 	}
 

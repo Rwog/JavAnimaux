@@ -1,11 +1,11 @@
 package controllers;
 
-import models.AnimalModel;
-import views.AnimalView;
+import models.PenguinModel;
+import views.OtherView;
 
 public class PenguinController extends OtherController {
 
-	public PenguinController(AnimalModel modele, AnimalView vue) {
+	public PenguinController(PenguinModel modele, OtherView vue) {
 		super(modele, vue);
 		// TODO Auto-generated constructor stub
 	}

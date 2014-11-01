@@ -1,11 +1,11 @@
 package controllers;
 
-import models.AnimalModel;
-import views.AnimalView;
+import models.WolfModel;
+import views.MammalView;
 
 public class WolfController extends MammalController {
 
-	public WolfController(AnimalModel modele, AnimalView vue) {
+	public WolfController(WolfModel modele, MammalView vue) {
 		super(modele, vue);
 		// TODO Auto-generated constructor stub
 	}

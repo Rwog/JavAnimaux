@@ -1,11 +1,11 @@
 package controllers;
 
-import models.MammalModel;
+import models.BearModel;
 import views.MammalView;
 
 public class BearController extends MammalController {
 
-	public BearController(MammalModel modele, MammalView vue) {
+	public BearController(BearModel modele, MammalView vue) {
 		super(modele, vue);
 	}
 
