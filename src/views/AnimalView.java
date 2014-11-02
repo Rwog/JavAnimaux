@@ -2,7 +2,8 @@ package views;
 
 public abstract class AnimalView {
 	
-	public void showAnimalStats(String nom, String poids, String taille, String sexe, String age, String faim, String estEndormi, String sante) {
+	// Exemple d'output:  - Tigre59 (m) - Santé [59%] Faim [Affamé] _ Lourd, Grand, Adolescent _ Endormi.
+	public void displayInformations(String nom, String poids, String taille, String sexe, String age, String faim, String estEndormi, String sante) {
 		System.out.println("- " + nom + " ("+ sexe +") - Santé [" 
 							+ sante + " %] Faim ["+ faim +"] _ " 
 							+ poids + ", " + taille + ", " + age + estEndormi + ".");

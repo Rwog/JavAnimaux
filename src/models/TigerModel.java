@@ -1,6 +1,6 @@
 package models;
 
-import animal_behaviour.Wanderer;
+import interfaces.Wanderer;
 
 
 public class TigerModel extends MammalModel implements Wanderer {

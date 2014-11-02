@@ -7,7 +7,6 @@ public class WolfController extends MammalController {
 
 	public WolfController(WolfModel modele, MammalView vue) {
 		super(modele, vue);
-		// TODO Auto-generated constructor stub
 	}
 
 }

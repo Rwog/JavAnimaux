@@ -1,12 +1,11 @@
 package models;
 
-import animal_behaviour.Wanderer;
+import interfaces.Wanderer;
 
 public class BearModel extends MammalModel implements Wanderer {
 
 	public BearModel(String newName, Sex newSex) {
 		super(newName, newSex);
-		// TODO Auto-generated constructor stub
 	}
 
 

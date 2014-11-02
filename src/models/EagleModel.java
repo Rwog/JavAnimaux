@@ -1,6 +1,6 @@
 package models;
 
-import animal_behaviour.Flyer;
+import interfaces.Flyer;
 
 public class EagleModel extends OtherModel implements Flyer {
 

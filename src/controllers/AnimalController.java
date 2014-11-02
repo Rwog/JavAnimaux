@@ -19,15 +19,15 @@ public abstract class AnimalController {
 
 	// Changer l'affichage
 	public void updateView() {
-		view.showAnimalStats(	model.getName(), 
-				convertWeight(model.getWeight()), 
-				convertHeight(model.getHeight()),	
-				convertSex(model.getSex()), 
-				convertAge(model.getAge()), 
-				convertHunger(model.getHunger()), 
-				convertIsAsleep(model.isAsleep()), 
-				convertHealth(model.getHealth())
-				);
+		view.displayInformations(	model.getName(), 
+									convertWeight(model.getWeight()), 
+									convertHeight(model.getHeight()),	
+									convertSex(model.getSex()), 
+									convertAge(model.getAge()), 
+									convertHunger(model.getHunger()), 
+									convertIsAsleep(model.isAsleep()), 
+									convertHealth(model.getHealth())
+								);
 	}
 
 	// Mort de l'animal
@@ -70,7 +70,7 @@ public abstract class AnimalController {
 			animal.setWeight(newWeight); 
 		}
 	}
-	
+
 	// Augmenter faim
 	public void moreHungry(AnimalModel animal) {
 		int newHunger = animal.getHunger()+1;
@@ -80,20 +80,20 @@ public abstract class AnimalController {
 			animal.setHunger(newHunger); 
 		}
 	}
-	
+
 	// Diminuer faim
-		public void lessHungry(AnimalModel animal) {
-			int newHunger = animal.getHunger()-1;
-			if (newHunger == 0) { 
-				/* Not possible */ 
-			} else { 
-				animal.setHunger(newHunger); 
-			}
+	public void lessHungry(AnimalModel animal) {
+		int newHunger = animal.getHunger()-1;
+		if (newHunger == 0) { 
+			/* Not possible */ 
+		} else { 
+			animal.setHunger(newHunger); 
 		}
+	}
 
 	//////////////////
-////// Fonctions de //
-////// conversions  //
+	////// Fonctions de //
+	////// conversions  //
 	//////////////////
 
 	// Le poids est un int entre 0 et 9

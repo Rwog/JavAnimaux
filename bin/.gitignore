@@ -4,3 +4,7 @@
 /models/
 /controllers/
 /views/
+/interfaces/
+/console/
+/consoleEvents/
+/consoles/

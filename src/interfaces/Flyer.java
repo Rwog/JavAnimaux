@@ -1,4 +1,4 @@
-package animal_behaviour;
+package interfaces;
 
 public interface Flyer extends I_Animal {
 	

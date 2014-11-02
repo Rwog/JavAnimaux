@@ -1,6 +1,6 @@
 package models;
 
-import animal_behaviour.Aquatic;
+import interfaces.Aquatic;
 
 public class GoldfishModel extends OtherModel implements Aquatic {
 

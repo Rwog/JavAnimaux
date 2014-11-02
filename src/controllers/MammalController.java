@@ -7,7 +7,6 @@ public abstract class MammalController extends AnimalController {
 
 	public MammalController(AnimalModel modele, AnimalView vue) {
 		super(modele, vue);
-		// TODO Auto-generated constructor stub
 	}
 
 }

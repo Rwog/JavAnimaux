@@ -1,8 +1,8 @@
 package models;
 
-import animal_behaviour.Aquatic;
-import animal_behaviour.Flyer;
-import animal_behaviour.Wanderer;
+import interfaces.Aquatic;
+import interfaces.Flyer;
+import interfaces.Wanderer;
 
 public class PenguinModel extends OtherModel implements Flyer, Wanderer, Aquatic {
 
