@@ -1,10 +1,5 @@
-/animal_behaviour/
-/animals/
-/enclosures/
-/models/
-/controllers/
-/views/
-/interfaces/
-/console/
-/consoleEvents/
 /consoles/
+/controllers/
+/interfaces/
+/models/
+/views/

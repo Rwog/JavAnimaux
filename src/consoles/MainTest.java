@@ -1,14 +1,18 @@
 package consoles;
 
+import views.ZooView;
+import controllers.ZooController;
+import models.ZooModel;
+
 public class MainTest {
 
-	public static void main(String[] args) throws InterruptedException {
-		ConsoleEvents logZoo = new ConsoleEvents();
+	public static void main(String[] args) {
 		
-		for (int i = 1; ; i++) {
-			logZoo.log("Ceci est la "+i+"ème itération !");
-			Thread.sleep(100);
-		}
+		ZooModel zoo = new ZooModel("A",7);
+		ZooView zv = new ZooView();
+		ZooController zc = new ZooController(zoo, zv);
+		
+		zc.showMaxEnclosure();		
 	} // main()
 
 } // class MainTest

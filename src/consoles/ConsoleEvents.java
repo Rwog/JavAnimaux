@@ -16,6 +16,8 @@ import javax.swing.text.DefaultCaret;
 
 public class ConsoleEvents implements ActionListener, FocusListener {
 
+	private static ConsoleEvents instance;
+	
 	private JFrame frame1;
 	private JFrame frame2;
 	private JFrame frame3;
@@ -26,10 +28,17 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 	private JScrollPane scrollPane2;
 	private JScrollPane scrollPane3;
 
-	public ConsoleEvents() {
-
-		// Création de la fenêtre de logs
-		this.frame1 = new JFrame("Événements Zoo");
+	public static ConsoleEvents getInstance() {
+		if (instance == null) {
+			instance = new ConsoleEvents();
+		} 
+		return instance;
+	}
+	
+	private ConsoleEvents() {
+		
+		// Crï¿½ation de la fenï¿½tre de logs
+		this.frame1 = new JFrame("EvÃ©nements Zoo");
 		this.frame2 = new JFrame("Ecran gardien");
 		this.frame3 = new JFrame("Commandes");
 
@@ -45,7 +54,7 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 		this.scrollPane2 = new JScrollPane(this.textArea2);
 		this.scrollPane3 = new JScrollPane(this.textArea3);
 
-		// Pour que l'affichage suive le défilement de texte
+		// Pour que l'affichage suive le dï¿½filement de texte
 		DefaultCaret caret1 = (DefaultCaret)textArea1.getCaret();
 		caret1.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		DefaultCaret caret2 = (DefaultCaret)textArea2.getCaret();
@@ -53,7 +62,7 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 		DefaultCaret caret3 = (DefaultCaret)textArea3.getCaret();
 		caret3.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-		// Mise en place de la fenêtre (position/taille)
+		// Mise en place de la fenï¿½tre (position/taille)
 		this.frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,17 +110,10 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 							clear();
 						} 
 					}
-
-
 				}
 				);
 	};
 
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		this.clear();
-	}
 
 	public void log(String message) {
 		this.textArea1.append(message+"\n");
@@ -125,7 +127,7 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 
 	private void traiter() {
 		print("Vous avez fait : "+ textArea3.getText());
-		
+
 	}
 	@Override
 	public void focusGained(FocusEvent e) {	}
@@ -133,19 +135,12 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 	@Override
 	public void focusLost(FocusEvent e) { }
 
-	/*
-	// Test
-	public static void main(String[] args) throws InterruptedException {
-		ConsoleEvents con = new ConsoleEvents();
-		con.setConsole();
-		con.textArea.append("===> Let's gooo !\n");
-		for (int i = 1; i < 100; i++) {
-			con.textArea.append("Ceci est la "+i+"ème itération !\n");
-			Thread.sleep(100);
-		}
-		con.textArea.append("Ceci est la 100ème, et dernière itération !\n");
 
-
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
-	 */
+
+
 }
