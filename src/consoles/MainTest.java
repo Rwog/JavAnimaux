@@ -8,9 +8,7 @@ public class MainTest {
 
 	public static void main(String[] args) {
 		
-		ZooModel zoo = new ZooModel("A",7);
-		ZooView zv = new ZooView();
-		ZooController zc = new ZooController(zoo, zv);
+		ZooController zc = new ZooController("Abc", 3);
 		
 		zc.showMaxEnclosure();		
 	} // main()
