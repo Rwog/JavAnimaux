@@ -10,12 +10,6 @@ public class SharkModel extends OtherModel implements Aquatic {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void swim() {
 		// TODO Auto-generated method stub
 

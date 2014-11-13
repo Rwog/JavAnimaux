@@ -4,9 +4,9 @@ import models.AnimalModel;
 import models.AnimalModel.Sex;
 import views.AnimalView;
 
-public abstract class AnimalController {
+public abstract class AnimalController implements Runnable {
 
-	// Modèle et vue associée à ce contrôlleur
+	// Modï¿½le et vue associï¿½e ï¿½ ce contrï¿½lleur
 	private AnimalModel model;
 	private AnimalView view;
 
@@ -92,19 +92,19 @@ public abstract class AnimalController {
 	}
 
 	//////////////////
-	////// Fonctions de //
-	////// conversions  //
+////// Fonctions de //
+////// conversions  //
 	//////////////////
 
 	// Le poids est un int entre 0 et 9
 	private String convertWeight(int poids) {
-		final String[] tabW = {"Anorexique", "Maigre","Mince","Léger","Normal","Lourd","Enrobé","Surpoids", "Obèse"};
+		final String[] tabW = {"Anorexique", "Maigre","Mince","Lï¿½ger","Normal","Lourd","Enrobï¿½","Surpoids", "Obï¿½se"};
 		return tabW[poids];
 	}
 
 	// La taille est un int entre 0 et 6
 	private String convertHeight(int taille) {
-		final String[] tabH = {"Minuscule", "Très petit","Petit","Normal","Grand","Très grand","Géant"};
+		final String[] tabH = {"Minuscule", "Trï¿½s petit","Petit","Normal","Grand","Trï¿½s grand","Gï¿½ant"};
 		return tabH[taille];
 	}
 
@@ -116,19 +116,19 @@ public abstract class AnimalController {
 		return "f";
 	}
 
-	// L'âge est un int entre 0 et 5
+	// L'ï¿½ge est un int entre 0 et 5
 	private String convertAge(int age) {
-		final String[] tabA = {"Bébé", "Jeune","Adolescent","Adulte","Senior","Ancien"};
+		final String[] tabA = {"Bï¿½bï¿½", "Jeune","Adolescent","Adulte","Senior","Ancien"};
 		return tabA[age];
 	}
 
 	// La faim est un int entre 0 et 4 
 	private String convertHunger(int faim) {
-		final String[] tabHu = {"Plein" , "Repu", "Normal", "Ventre vide" , "Affamé"};
+		final String[] tabHu = {"Plein" , "Repu", "Normal", "Ventre vide" , "Affamï¿½"};
 		return tabHu[faim];
 	}
 
-	// L'état de sommeil est soit true, soit false
+	// L'ï¿½tat de sommeil est soit true, soit false
 	private String convertIsAsleep(boolean estEndormi) {
 		if (estEndormi) {
 			return "_ Endormi";
@@ -136,7 +136,7 @@ public abstract class AnimalController {
 		return "";
 	}
 
-	// Conversion d'int en Str pour la valeur de santé
+	// Conversion d'int en Str pour la valeur de santï¿½
 	private String convertHealth(int sante) {
 		return (""+sante);
 	}

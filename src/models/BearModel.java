@@ -18,13 +18,6 @@ public class BearModel extends MammalModel implements Wanderer {
 
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
 	public void giveBirth() {
 		// TODO Auto-generated method stub
 		

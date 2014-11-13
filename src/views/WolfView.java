@@ -1,5 +1,5 @@
 package views;
 
-public class WolfView extends OtherView {
+public class WolfView extends MammalView {
 
 }

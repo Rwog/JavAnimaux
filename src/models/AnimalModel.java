@@ -1,6 +1,6 @@
 package models;
 
-public abstract class AnimalModel implements Runnable {
+public abstract class AnimalModel {
 
 	public enum Sex{m,f};
 
@@ -25,11 +25,11 @@ public abstract class AnimalModel implements Runnable {
 
 	// Vars
 	private String name; 
-	private int weight; 	  // 0-9 > obèse
-	private int height; 	  // 0-6 > géant
+	private int weight; 	  // 0-9 > obï¿½se
+	private int height; 	  // 0-6 > gï¿½ant
 	private Sex sex;		  // m/f
 	private int age;		  // 0-5 > mort par vieillesse
-	private int hunger; 	  // 0-4 > affamé
+	private int hunger; 	  // 0-4 > affamï¿½
 	private boolean isAsleep; // false-true > endormi
 	private int health;       // 0-100 / 0 = mort non-naturelle
 

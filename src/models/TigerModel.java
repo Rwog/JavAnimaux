@@ -10,14 +10,8 @@ public class TigerModel extends MammalModel implements Wanderer {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void roam() {
-		/* L'animal tourne en rond dans son enclos... quelle cruauté ! */
+		/* L'animal tourne en rond dans son enclos... quelle cruautï¿½ ! */
 		
 	}
 

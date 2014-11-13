@@ -10,12 +10,6 @@ public class EagleModel extends OtherModel implements Flyer {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void fly() {
 		// TODO Auto-generated method stub
 

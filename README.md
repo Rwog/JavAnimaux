@@ -8,7 +8,7 @@ Branch mvcimpl1 =
 ==> Code
 - DONE : Implémentation MVC Animaux et Enclosure
 - DONE : Système d'affichage 3 fenetre (log, menus, input) 
-- ToDo : [Controllers des animaux] => en Runnable (et non pas model)
+- DONE : [Controllers des animaux] => en Runnable (et non pas model)
 - ToDo : [All Controllers] -> établir le model/view dans le constructeur
 - ToDo : fonction "getRandomEvent()" pour les animaux-threads
 

@@ -4,7 +4,7 @@ public abstract class EnclosureModel {
 
 	private String name;
 	private int area;
-	private int dirtyness; 		// 0-5 > dÈgueulasse
+	private int dirtyness; 		// 0-5 > d√©gueulasse
 	private int nbAnimalMax;
 	private int nbAnimalNow;
 	

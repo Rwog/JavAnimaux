@@ -10,12 +10,6 @@ public class WolfModel extends MammalModel implements Wanderer {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void roam() {
 		// TODO Auto-generated method stub
 

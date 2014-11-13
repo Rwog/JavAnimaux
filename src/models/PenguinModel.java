@@ -12,12 +12,6 @@ public class PenguinModel extends OtherModel implements Flyer, Wanderer, Aquatic
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void swim() {
 		// TODO Auto-generated method stub
 

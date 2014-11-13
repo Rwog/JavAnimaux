@@ -1,12 +1,19 @@
 package controllers;
 
 import models.GoldfishModel;
-import views.OtherView;
+import models.AnimalModel.Sex;
+import views.GoldfishView;
 
 public class GoldfishController extends OtherController {
 
-	public GoldfishController(GoldfishModel modele, OtherView vue) {
-		super(modele, vue);
+	public GoldfishController(String newGoldfishName, Sex sexe) {
+		super(new GoldfishModel(newGoldfishName, sexe), new GoldfishView());
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,12 +1,19 @@
 package controllers;
 
 import models.PenguinModel;
-import views.OtherView;
+import models.AnimalModel.Sex;
+import views.PenguinView;
 
 public class PenguinController extends OtherController {
 
-	public PenguinController(PenguinModel modele, OtherView vue) {
-		super(modele, vue);
+	public PenguinController(String newPenguinName, Sex sexe) {
+		super(new PenguinModel(newPenguinName, sexe), new PenguinView());
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
