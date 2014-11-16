@@ -1,8 +1,6 @@
 package consoles;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
@@ -14,10 +12,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.DefaultCaret;
 
-public class ConsoleEvents implements ActionListener, FocusListener {
+import controllers.ZooController;
+
+public class ConsoleEvents {
 
 	private static ConsoleEvents instance;
-	
+
 	private JFrame frame1;
 	private JFrame frame2;
 	private JFrame frame3;
@@ -27,18 +27,22 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 	private JScrollPane scrollPane1;
 	private JScrollPane scrollPane2;
 	private JScrollPane scrollPane3;
+	private ZooController zoo;
+	private int menuphase = 0;
 
-	public static ConsoleEvents getInstance() {
-		if (instance == null) {
-			instance = new ConsoleEvents();
-		} 
+	public static ConsoleEvents setInstance(ZooController zcc) {
+		instance = new ConsoleEvents(zcc);
 		return instance;
 	}
-	
-	private ConsoleEvents() {
-		
+
+	public static ConsoleEvents getInstance() {
+		return instance;
+	}
+
+	private ConsoleEvents(ZooController zcc) {
+		this.zoo = zcc;
 		// Crï¿½ation de la fenï¿½tre de logs
-		this.frame1 = new JFrame("EvÃ©nements Zoo");
+		this.frame1 = new JFrame("Evenements Zoo");
 		this.frame2 = new JFrame("Ecran gardien");
 		this.frame3 = new JFrame("Commandes");
 
@@ -108,10 +112,28 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 							if (textArea3.getText().equals("")) { clear(); print("Entrez une commande...");}
 							traiter();
 							clear();
-						} 
+						} else if (e.getKeyCode() == KeyEvent.VK_R) {
+							menuphase = 0;
+							clearPrint();
+							clear();
+							menu("0");
+							return;
+						}
 					}
 				}
-				);
+				);	
+		FocusListener fock = new FocusListener() {
+
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				// Recup le focus si une autre fenêtre est choisie
+				textArea3.requestFocus();
+			}
+
+			@Override
+			public void focusGained(FocusEvent arg0) {}
+		};
+		this.textArea3.addFocusListener(fock);
 	};
 
 
@@ -124,23 +146,124 @@ public class ConsoleEvents implements ActionListener, FocusListener {
 	public void clear() {
 		this.textArea3.setText(null);
 	}
+	public void clearPrint() {
+		this.textArea2.setText(null);
+
+	}
 
 	private void traiter() {
-		print("Vous avez fait : "+ textArea3.getText());
+		// Choix entré par le joueur
+		if (textArea3.getText().equals("R")) {
+			this.menuphase = 0;
+			clearPrint();
+			menu("0");
+			return;
+		}
+		if (!MyTools.isNumeric(textArea3.getText())) { 
+			print("\nChoix invalide !");
+			return;
+		}
+		int parsedChoice = Integer.parseInt(textArea3.getText());
+		// Traitements pour le menu de phase 0
+		if (this.menuphase == 0) {
+			switch (parsedChoice) {
+			case 1:
+				this.menu("0_1"); // Observer Enclos
+				break;
+
+			case 2:
+				this.menu("0_2"); // Placer nourriture
+				break;
+				
+			case 3:
+				this.menu("0_3"); // Appeller médecin
+				break;
+				
+			case 4:
+				this.menu("0_4"); // Adopter nouvel animal
+			
+			default:
+				print("Choix invalide");
+				break;
+			}
+		} 
+		// Traitement pour le menu de phase 1 (enclos)
+		else if (this.menuphase == 1){
+			if (parsedChoice < this.zoo.getListEnclosure().size() ) {
+				clearPrint();
+				menu("0_1");
+				print("");
+				this.zoo.getListEnclosure().get(parsedChoice).displayAnimals();
+			} else {
+				clearPrint();
+				menu("0_1");
+				print("Choix invalide");
+			}
+		}
+		// Traitement pour le menu de phase 2 (remplir enclos de nourriture)
+		else if (this.menuphase == 2) {
+			this.zoo.getListEnclosure().get(parsedChoice).setFood(100, true);
+			clearPrint();
+			menu("0_2");
+			print("");
+			print("Enclos numéro " + parsedChoice + "rempli de nourriture !");
+		} // Traitement pour le menu de phase 3 (soigner animaux d'un enclos)
+		else if (this.menuphase == 3) {
+			this.zoo.getListEnclosure().get(parsedChoice).healAllInEnclosure();
+			clearPrint();
+			menu("0_3");
+			print("");
+			print("Le médecin s'est occupé des animaux de l'enclos numéro" + parsedChoice + ".");
+			print("Il vous enverra la douloureuse facture très bientôt !");
+		}
 
 	}
-	@Override
-	public void focusGained(FocusEvent e) {	}
 
-	@Override
-	public void focusLost(FocusEvent e) { }
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void menu(String choix) {
+		// Menu racine : phase = 0
+			switch (choix) {
+			case "0":
+				clearPrint();
+				print("-- MENU PRINCIPAL --");
+				print("1- Observer Enclos");
+				print("2- Placer nourriture");
+				print("3- Appel médecin");
+				print("4- Adopter nouvel animal");
+				this.menuphase = 0;
+				break;
+			case "0_1":
+				clearPrint();
+				print("-- OBSERVER ENCLOS --");
+				print("[R] - Retour au menu principal.");
+				print("Choisissez un enclos avec son numéro pour afficher les animaux à l'intérieur :");
+				this.menuphase = 1;
+				this.zoo.showAllEnclosures();
+				clear();
+				break;
+			case "0_2":
+				clearPrint();
+				print("-- NOURRIR ANIMAUX --");
+				print("[R] - Retour au menu principal.");
+				print("Choisissez l'enclos que vous voulez remplir de nourriture :");
+				this.menuphase = 2;
+				this.zoo.showAllEnclosures();
+				break;
+			case "0_3":
+				clearPrint();
+				print("-- APPEL MEDECIN --");
+				print("[R] - Retour au menu principal.");
+				print("Choisissez l'enclos dont vous voulez soigner les animaux :");
+				this.menuphase = 3;
+				this.zoo.showAllEnclosures();
+				break;
+			default:
+				break;
+			}
 		
+
 	}
+
+
 
 
 }

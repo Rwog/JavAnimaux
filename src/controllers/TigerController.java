@@ -13,10 +13,4 @@ public class TigerController extends MammalController {
 		super(new TigerModel(newTigerName, sexe), new TigerView());
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

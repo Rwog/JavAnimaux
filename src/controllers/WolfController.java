@@ -13,10 +13,4 @@ public class WolfController extends MammalController {
 		super(new WolfModel(newWolfName, sexe), new WolfView());
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
